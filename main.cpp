@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 void Login(){
     int c;
     string userid, userpass, id, pass;
@@ -10,7 +9,6 @@ void Login(){
     cin >> userid;
     cout << "\n Please enter a password: ";
     cin >> userpass;
-
     
 }
 void Register();

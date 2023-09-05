@@ -11,8 +11,12 @@ void Login(){
     cin >> userpass;
     
 }
-void Register();
-void Forgot();
+void Register(){
+
+}
+void Forgot(){
+    
+}
 
 int System(){
     int c;

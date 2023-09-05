@@ -12,10 +12,10 @@ void Login(){
     
 }
 void Register(){
-
+    int c;
 }
 void Forgot(){
-    
+    int c;
 }
 
 int System(){

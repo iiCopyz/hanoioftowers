@@ -23,6 +23,7 @@ void Login(){
         break;
     } else {
         cout << "Incorrect Username/Password..";
+        Login();
     }
 }
 
@@ -32,7 +33,7 @@ void Register(){
         cout << "Could not open file...\n"; 
     }
 
-    string userid, userpass;
+    string userid, userpass, userpass2;
     cout << "Please enter a new username: ";
     cin >> userid;
     r << userid;
@@ -40,11 +41,19 @@ void Register(){
     do{
         cout << "\n Please enter a new password: ";
         cin >> userpass;
-        r << userpass;
-        if (userpass => 4){
-            break;
+        cout << "\n Please re-enter the password: ";
+        cin >> userpass2;
+
+        if (userpass && userpass2 => 4){
+            if (userpass == userpass2){
+                break;
+            }
+            cout << "\nThe passwords do not match! Please try again.";
         }
     }while (userpass < 4);
+
+    r << userpass;
+    r << '\n';
 }
 
 void Forgot(){
@@ -105,5 +114,5 @@ int System(){
 }
 
 int main(){
-    
+    System();
 }

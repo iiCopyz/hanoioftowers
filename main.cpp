@@ -1,21 +1,72 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 void Login(){
-    int c;
-    string userid, userpass, id, pass;
-    cout << "Please enter a Username: ";
-    cin >> userid;
-    cout << "\n Please enter a password: ";
-    cin >> userpass;
-    
+    ifstream l("Registration.txt");
+    if (!l.is_open()){
+        cout << "Could not open file...\n";
+    }
+
+    getline (l, userid, '\n');
+    getline (l, userpass, '\n');
+
+    string id, pass;
+    cout << "Please enter your Username: ";
+    cin >> id;
+    cout << "\n Please enter your password: ";
+    cin >> pass;
+
+    if (id == userid && pass == userpass){
+        cout << "Hello!";
+        break;
+    } else {
+        cout << "Incorrect Username/Password..";
+    }
 }
+
 void Register(){
-    int c;
+    ofstream r("Registration.txt");
+    if (!r.is_open()){
+        cout << "Could not open file...\n"; 
+    }
+
+    string userid, userpass;
+    cout << "Please enter a new username: ";
+    cin >> userid;
+    r << userid;
+    r << '\n';
+    do{
+        cout << "\n Please enter a new password: ";
+        cin >> userpass;
+        r << userpass;
+        if (userpass => 4){
+            break;
+        }
+    }while (userpass < 4);
 }
+
 void Forgot(){
-    int c;
+    ifstream f("Registration.txt");
+    if (!f.is_open()){
+        cout < "Could not open file..,\n";
+    }
+    
+    getline (f, userid, '\n');
+    getline (f, userpass, '\n');
+
+    string id2, pass2;
+    cout << "Please enter your username: ";
+    cin >> id2;
+    if (id2 == userid){
+        cout << "Please enter a new password: ";
+        userpass.clear();
+        cin >> userpass;
+    } else {
+        cout << "Wrong Username, Please try again."
+        Forgot();
+    }
 }
 
 int System(){
@@ -48,7 +99,7 @@ int System(){
             break;
         
         default:
-            cout << "choice: ";
+            cout << "Choice: ";
             cin >> c;
     }
 }

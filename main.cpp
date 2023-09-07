@@ -31,6 +31,7 @@ void Register(){
 }
 
 void Login(){
+    string userid, userpass;
     ifstream l("Registration.txt");
     if (!l.is_open()){
         cout << "Could not open file...\n";
@@ -42,11 +43,11 @@ void Login(){
     string id, pass;
     cout << "Please enter your Username: ";
     cin >> id;
-    cout << "\n Please enter your password: ";
+    cout << "\nPlease enter your password: ";
     cin >> pass;
 
     if (id == userid && pass == userpass){
-        cout << "Hello!";
+        cout << "\nHello!";
     } else {
         cout << "Incorrect Username/Password..";
         Login();
@@ -54,6 +55,7 @@ void Login(){
 }
 
 void Forgot(){
+    string userid, userpass;
     ifstream f("Registration.txt");
     if (!f.is_open()){
         cout << "Could not open file..,\n";

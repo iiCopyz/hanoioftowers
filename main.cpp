@@ -7,13 +7,15 @@ int System();
 
 void Register(){
     string userid, userpass, userpass2;
-    ofstream r("Registration.txt", ios::app);
-    if (!r.is_open()){
-        cout << "Could not open file...\n"; 
-    }
 
     cout << "Please enter a new username: ";
     cin >> userid;
+
+    ofstream r(userid + ".txt");
+    if (!r.is_open()){
+        cout << "Could not open file...\n"; 
+        System();
+    }
     r << userid << '\n';
     do{
         cout << "\nPlease enter a new password: ";
@@ -36,17 +38,19 @@ void Register(){
 void Login(){
     string userid, userpass, id, pass;
 
-    ifstream l("Registration.txt", ios::app);
+    cout << "\nPlease enter your Username: ";
+    cin >> userid;
+
+    ifstream l(userid + ".txt");
     if (!l.is_open()){
         cout << "Could not open file...\n";
+        System();
     }
-    getline (l, userid, '\n');
-    getline (l, userpass, '\n');
+    getline (l, id);
+    getline (l, pass);
 
-    cout << "\nPlease enter your Username: ";
-    cin >> id;
     cout << "Please enter your password: ";
-    cin >> pass;
+    cin >> userpass;
 
     if (id == userid && pass == userpass){
         cout << "\nHello " << id;
@@ -59,15 +63,17 @@ void Login(){
 void Forgot(){
     string userid, userpass, id2, pass2;
 
-    ifstream f("Registration.txt", ios::app);
+    cout << "\nPlease enter your username: ";
+    cin >> userid;
+
+    ifstream f(userid + ".txt");
     if (!f.is_open()){
         cout << "Could not open file..,\n";
+        System();
     }
-    getline (f, userid, '\n');
-    getline (f, userpass, '\n');
+    getline (f, id2);
+    getline (f, pass2);
 
-    cout << "\nPlease enter your username: ";
-    cin >> id2;
     if (id2 == userid){
         userid.clear();
         userpass.clear();
@@ -76,7 +82,7 @@ void Forgot(){
         cout << "Please enter a new password: ";
         cin >> userpass;
 
-        ofstream n("Registration.txt", ios::app);
+        ofstream n(userid + ".txt");
         if (!n.is_open()){
             cout << "Could not open file...\n";
         }
@@ -115,7 +121,7 @@ int System(){
             break;
         
         case 4:
-            cout << "\nGoodbye";
+            cout << "Goodbye\n";
             break;
         
         default:

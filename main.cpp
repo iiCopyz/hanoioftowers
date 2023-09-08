@@ -32,7 +32,6 @@ void Register(){
     }while (userpass != userpass2);
 
     r << userpass << '\n';
-    r.close();
 }
 
 void Login(){
@@ -61,33 +60,27 @@ void Login(){
 }
 
 void Forgot(){
-    string userid, userpass, id2, pass2;
+    string userid, userpass, id2, pass2, uop;
 
     cout << "\nPlease enter your username: ";
     cin >> userid;
 
     ifstream f(userid + ".txt");
     if (!f.is_open()){
-        cout << "Could not open file..,\n";
+        cout << "Could not find account...\n";
         System();
     }
     getline (f, id2);
     getline (f, pass2);
 
     if (id2 == userid){
-        userid.clear();
-        userpass.clear();
-        cout << "\nPlease enter a new username: ";
+        cout << "Please enter your username again: ";
         cin >> userid;
         cout << "Please enter a new password: ";
         cin >> userpass;
-
-        ofstream n(userid + ".txt");
-        if (!n.is_open()){
-            cout << "Could not open file...\n";
-        }
-        n << userid << '\n';
-        n << userpass << '\n';
+        ofstream f(userid + ".txt");
+        f << userid << '\n';
+        f << userpass << '\n';
     } else {
         cout << "\nWrong Username, Please try again.";
         System();

@@ -1,16 +1,19 @@
-# Regisys
+#
+For this machine problem, you are to program a solution to the Towers of
+Hanoi problem. Instead of a recursive program, you must implement a
+solution using a loop and a stack. The algorithm you are to implement is:
 
-Registration System that will have:
+PROCEDURE HANOI
 
-1. Login
-2. Register
-3. Forgot things
-4. Quit
-
-What I do NOt know how to do?
-
-Save the information given by the user so whenever the program is ran I can always recall that information.
-
-What is this useful for?
-
-Eventually, I want to build a website that has my projects on it (+ whatever I build in the future), so I can add a profile system using this. 
+  /* Move n disks from pole 1 to pole 2 using pole 3 */
+  S ←− empty stack
+  S ⇐ (n, 1, 2, 3)
+  while (S ̸= empty )
+    (n, i, j, k) ⇐ S
+    if n = 1 then
+        move the top disk from pole i to pole k
+    else
+        S ⇐ (n − 1, j, i, k)
+        S ⇐ (1, i, j, k)
+        S ⇐ (n − 1, i, k, j)
+end HANOI

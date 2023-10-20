@@ -3,6 +3,5 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "iosfwd": "cpp"
-    },
-    "git.enabled": true
+    }
 }

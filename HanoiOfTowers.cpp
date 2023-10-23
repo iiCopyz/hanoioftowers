@@ -3,7 +3,7 @@
 #include "HanoiOfTowers.h"
 using namespace std;
 
-void stack::push( /* missing code */ ) {
+void stack::push(HanoiRecord item) {
     /* missing code */
 }
 

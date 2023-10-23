@@ -26,11 +26,11 @@ class stack {
         };
         HanoiRecordLink * _top;
     public:
-        stack() { /* missing code */ }
+        stack(){ _top = nullptr; }
         void push( HanoiRecord );
         HanoiRecord pop();
         HanoiRecord top() {
-        /* missing code */
+            assert(!is_empty());
         }
-        bool is_empty() { /* missing code */ }
+        bool is_empty() { return _top; }
 };

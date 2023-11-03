@@ -26,11 +26,19 @@ class stack {
         };
         HanoiRecordLink * _top;
     public:
-        stack(){ _top = nullptr; }
+        stack() { 
+            //instalizes the stack as null
+            _top = nullptr;
+        }
         void push( HanoiRecord );
         HanoiRecord pop();
         HanoiRecord top() {
-            assert(!is_empty());
+            //checking to make sure the stack isn't empty
+            assert((!is_empty() && "Stack is empty!"));
+            return _top -> value;
         }
-        bool is_empty() { return _top; }
+        bool is_empty() { 
+            //returns true if top is null
+            return _top == nullptr;
+        }
 };
